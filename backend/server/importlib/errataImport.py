@@ -31,6 +31,7 @@ class ErrataImport(GenericPackageImport):
         self.cve = {}
         self.queue_timeout = queue_timeout
         self.file_types = {}
+        self.package_type = ""
 
     def preprocess(self):
         # Processes the package batch to a form more suitable for database
@@ -90,6 +91,7 @@ class ErrataImport(GenericPackageImport):
 
             if f['file_type'] == 'RPM':
                 package = f.get('pkgobj')
+                self.package_type = "rpm"
                 if package:
                     self._processPackage(package)
                     nevrao = tuple(get_nevrao(package))
@@ -121,7 +123,7 @@ class ErrataImport(GenericPackageImport):
         self._fixCVE()
 
         self.backend.lookupPackageNames(self.names)
-        self.backend.lookupEVRs(self.evrs)
+        self.backend.lookupEVRs(self.evrs, self.package_type)
         self.backend.lookupChecksums(self.checksums)
         self.backend.lookupPackageArches(self.package_arches)
 

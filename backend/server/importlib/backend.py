@@ -408,6 +408,18 @@ class Backend:
         # Finally, update the hash
         arch_types_hash.update(results)
 
+    def lookupChannelArchType(self, channel_arch_id):
+        h = self.dbmodule.prepare(
+                "select at.label
+                   from rhnChannelArch ca
+                   join rhnArchType at on ca.arch_type_id = at.id
+                  where ca.id = :channel_arch_id")
+        h.execute(channel_arch_id=channel_arch_id)
+        row = h.fetchone_dict()
+        if row:
+            return row['label']
+        return ""
+
     def _lookupOrg(self):
         # Returns the org id
         sql = "select min(id) as id from web_customer"
@@ -666,8 +678,8 @@ class Backend:
 
         return row['id']
 
-    def lookupEVRs(self, evrHash):
-        sql = "select LOOKUP_EVR(:epoch, :version, :release) id from dual"
+    def lookupEVRs(self, evrHash, ptype):
+        sql = "select LOOKUP_EVR2(:epoch, :version, :release, :ptype) id from dual"
         h = self.dbmodule.prepare(sql)
         for evr in sorted(evrHash.keys(), key=lambda k: (str(k[0] or 0), k[1], k[2])):
             epoch, version, release = evr
@@ -675,7 +687,7 @@ class Backend:
                 epoch = None
             else:
                 epoch = str(epoch)
-            h.execute(epoch=epoch, version=version, release=release)
+            h.execute(epoch=epoch, version=version, release=release, ptype=ptype)
             row = h.fetchone_dict()
             if row:
                 evrHash[evr] = row['id']
