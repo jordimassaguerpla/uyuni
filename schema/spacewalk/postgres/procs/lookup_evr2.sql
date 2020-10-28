@@ -26,7 +26,7 @@ begin
      where ((epoch is null and e_in is null) or (epoch = e_in)) and
            version = v_in and
            release = r_in and
-           type = t_in;
+           (evr).type = t_in;
 
     if not found then
         -- HACK: insert is isolated in own function in order to be able to declare this function immutable

@@ -17,7 +17,7 @@ begin
         into strict evr_id
         from rhnPackageEVR
         where ((epoch is null and e_in is null) or (epoch = e_in)) and
-           version = v_in and release = r_in and type = t_in;
+           version = v_in and release = r_in and (evr).type = t_in;
 
     return evr_id;
 end;
