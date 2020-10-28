@@ -409,11 +409,11 @@ class Backend:
         arch_types_hash.update(results)
 
     def lookupChannelArchType(self, channel_arch_id):
-        h = self.dbmodule.prepare(
-                "select at.label
-                   from rhnChannelArch ca
-                   join rhnArchType at on ca.arch_type_id = at.id
-                  where ca.id = :channel_arch_id")
+        h = self.dbmodule.prepare("""
+                select at.label
+                  from rhnChannelArch ca
+                  join rhnArchType at on ca.arch_type_id = at.id
+                 where ca.id = :channel_arch_id""")
         h.execute(channel_arch_id=channel_arch_id)
         row = h.fetchone_dict()
         if row:
