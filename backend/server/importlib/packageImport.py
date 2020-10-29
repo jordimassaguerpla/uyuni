@@ -72,7 +72,10 @@ class ChannelPackageSubscription(GenericPackageImport):
                 # Unsupported channel
                 continue
             self.channel_package_arch_compat[channel_row['channel_arch_id']] = None
-            self.package_type = self.backend.lookupChannelArchType(channel_row['channel_arch_id'])
+        for label, aid in self.package_arches.items():
+            self.package_type = self.backend.lookupPackageArchType(aid)
+            if self.package_type:
+                break
         self.backend.lookupChannelPackageArchCompat(self.channel_package_arch_compat)
         self.backend.lookupPackageNames(self.names)
         self.backend.lookupEVRs(self.evrs, self.package_type)

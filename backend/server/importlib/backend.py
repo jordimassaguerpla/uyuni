@@ -408,17 +408,17 @@ class Backend:
         # Finally, update the hash
         arch_types_hash.update(results)
 
-    def lookupChannelArchType(self, channel_arch_id):
+    def lookupPackageArchType(self, pkg_arch_id):
         h = self.dbmodule.prepare("""
                 select at.label
-                  from rhnChannelArch ca
-                  join rhnArchType at on ca.arch_type_id = at.id
-                 where ca.id = :channel_arch_id""")
-        h.execute(channel_arch_id=channel_arch_id)
+                  from rhnPackageArch pa
+                  join rhnArchType at on pa.arch_type_id = at.id
+                 where pa.id = :pkg_arch_id""")
+        h.execute(pkg_arch_id=pkg_arch_id)
         row = h.fetchone_dict()
         if row:
             return row['label']
-        return ""
+        return None
 
     def _lookupOrg(self):
         # Returns the org id
