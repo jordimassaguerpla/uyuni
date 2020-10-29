@@ -46,7 +46,7 @@ class ChannelPackageSubscription(GenericPackageImport):
             self.caller = caller
         self._strict_subscription = strict
         self.repogen = repogen
-        self.package_type = ""
+        self.package_type = None
 
     def preprocess(self):
         # Processes the package batch to a form more suitable for database
