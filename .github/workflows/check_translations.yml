@@ -81,6 +81,6 @@ jobs:
       if: env.translations_needed_for_master != env.translations_needed_for_PR
       uses: andymckay/labeler@1.0.4
       run: |
-        echo "translations needed for master ${{ env.translations_needed_from_master }}"
-        echo "translations needed for PR ${{ env.translations_needed_for_PR }}"
+        echo "translations needed for master ${{ env.translations_neeed_for_master }}"
+        echo "translations needed for PR ${{ env.translations_neeed_for_PR }}"
 
