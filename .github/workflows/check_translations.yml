@@ -83,7 +83,4 @@ jobs:
       run: |
         echo "translations needed for master ${{ env.translations_needed_from_master }}"
         echo "translations needed for PR ${{ env.translations_needed_for_PR }}"
-      with:
-        add-labels: "needs-translation"
-        repo-token: "${{ secrets.GITHUB_TOKEN }}"
 
