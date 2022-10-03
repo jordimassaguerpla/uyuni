@@ -1,4 +1,4 @@
-#
+TEST#
 # spec file for package yum-rhn-plugin
 #
 # Copyright (c) 2022 SUSE LLC
