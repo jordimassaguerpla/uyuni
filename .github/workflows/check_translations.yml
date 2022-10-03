@@ -51,7 +51,7 @@ jobs:
         cd master_repo
         trs=$(git diff origin_check_translations check_translations | wc -l)
         echo "Translations needed for master: ${trs}"
-        echo "translations_neeed_for_master=${trs}" >> $GITHUB_ENV
+        echo "translations_needed_for_master=${trs}" >> $GITHUB_ENV
         cd ..
 
     - name: Checkout PR repo
@@ -75,11 +75,11 @@ jobs:
         cd pr_repo
         trs=$(git diff origin_check_translations check_translations | wc -l)
         echo "Translations needed for PR: ${trs}"
-        echo "translations_neeed_for_PR=${trs}" >> $GITHUB_ENV
+        echo "translations_needed_for_PR=${trs}" >> $GITHUB_ENV
         cd ..
 
     - name: Add label
-      if: env.translations_need_for_master != env.translations_need_for_PR
+      if: env.translations_needed_for_master != env.translations_needed_for_PR
       uses: andymckay/labeler@1.0.4
       with:
         add-labels: "needs-translation"
