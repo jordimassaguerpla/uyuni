@@ -17,7 +17,7 @@
       <trans-unit id="2.0.0" xml:space="preserve">
         <source>2.0.0</source>
         <context-group name="ctx">
-          <context context-type="sourcefile">Navigation Menus</context>
+          <context context-type="sourcefile">Navigation Menu</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2.0.1" xml:space="preserve">

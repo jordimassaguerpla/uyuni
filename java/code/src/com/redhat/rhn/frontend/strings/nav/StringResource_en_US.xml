@@ -3,7 +3,7 @@
   <file datatype="plaintext" original="" source-language="en">
     <body>
       <trans-unit id="common.nav.overview" xml:space="preserve">
-        <source>OverviewTEST</source>
+        <source>Overview</source>
         <context-group name="ctx">
           <context context-type="sourcefile">Configuration Navigation Menu</context>
         </context-group>
