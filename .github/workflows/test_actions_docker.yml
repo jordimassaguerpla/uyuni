@@ -25,7 +25,7 @@ jobs:
       - name: build_new_container
         run: docker build -t dockerfiles/controller-test/Dockerfile . -t controller-test:master
       - name: run_new_container
-        run: docker run --rm -a stdout -a stderr --network uyuni_default --name controller-test_1 controller-test:master bash -c "cucumber"
+        run: docker run --rm -a stdout -a stderr --network uyuni_default --name controller-test_1 controller-test:master bash -c "CUCUMBER_PUBLISH_TOKEN=95eb386d-cb35-4824-a477-d827783c8f0c cucumber"
       - name: remove_controller
         run: docker kill controller-test_1
       - name: remove_controller_image
