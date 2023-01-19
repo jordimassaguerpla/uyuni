@@ -1,0 +1,67 @@
+version: "3.9"
+services:
+  sles-minion:
+    image: "${GITHUB_REGISTRY:?Set_GITHUB_REGISTRY}/${GITHUB_PROJECT:?Set_GITHUB_PROJECT}/sle-minion:master"
+  opensuse-minion:
+    image: "${GITHUB_REGISTRY:?Set_GITHUB_REGISTRY}/${GITHUB_PROJECT:?Set_GITHUB_PROJECT}/opensuse-minion:master"
+  opensuse-ssh-minion:
+    image: "${GITHUB_REGISTRY:?Set_GITHUB_REGISTRY}/${GITHUB_PROJECT:?Set_GITHUB_PROJECT}/opensuse-minion:master"
+  ubuntu-minion:
+    image: "${GITHUB_REGISTRY:?Set_GITHUB_REGISTRY}/${GITHUB_PROJECT:?Set_GITHUB_PROJECT}/ubuntu-minion:master"
+  rocky-minion:
+    image: "${GITHUB_REGISTRY:?Set_GITHUB_REGISTRY}/${GITHUB_PROJECT:?Set_GITHUB_PROJECT}/rocky-minion:master"
+  opensuse-proxy:
+    image: "${GITHUB_REGISTRY:?Set_GITHUB_REGISTRY}/${GITHUB_PROJECT:?Set_GITHUB_PROJECT}/opensuse-proxy:master"
+  proxy-httpd-test:
+    build:
+      context: .
+      dockerfile: dockerfiles/proxy-http-test/Dockerfile
+  proxy-salt-broker-test:
+    build:
+      context: .
+      dockerfile: dockerfiles/proxy-salt-broker-test/Dockerfile
+  proxy-squid:
+    image: "${GITHUB_REGISTRY:?Set_GITHUB_REGISTRY}/${GITHUB_PROJECT:?Set_GITHUB_PROJECT}/proxy-squid:master"
+  proxy-ssh:
+    image: "${GITHUB_REGISTRY:?Set_GITHUB_REGISTRY}/${GITHUB_PROJECT:?Set_GITHUB_PROJECT}/proxy-ssh:master"
+  proxy-tftpd:
+    image: "${GITHUB_REGISTRY:?Set_GITHUB_REGISTRY}/${GITHUB_PROJECT:?Set_GITHUB_PROJECT}/proxy-tftpd:master"
+  server-h-test:
+    ports:
+      - "1234:80"
+    image: "${GITHUB_REGISTRY:?Set_GITHUB_REGISTRY}/${GITHUB_PROJECT:?Set_GITHUB_PROJECT}/server-httpd-dev:master"
+    command: bash -c "cd /srv/www/htdocs/ ; cp /web/js.tar.bz2 . ;tar jxvf js.tar.bz2; cp /web/fonts.awesome.tar.bz2 .; tar jxvf fonts.awesome.tar.bz2;cd /web/html/src;[ -d dist ] || mkdir dist;yarn install --force --ignore-optional --production=true --frozen-lockfile;yarn autoclean --force;node build/yarn/yarn-1.22.17.js build:novalidate; rsync -av dist/ /srv/www/htdocs/ ; echo test > /srv/www/htdocs/test.html; cp /web/default-server.conf-with-cors-enabled /etc/apache2/default-server.conf ;cp /web/bootstrap-datepicker.css /srv/www/htdocs/css; a2enmod headers ;/usr/sbin/start_apache2 -DFOREGROUND -k start"
+    volumes: 
+      - ./web:/web
+
+  server-s-test:
+    build:
+      context: .
+      dockerfile: dockerfiles/server-search-test/Dockerfile
+  server-t-test:
+    build:
+      context: .
+      dockerfile: dockerfiles/server-taskomatic-test/Dockerfile
+  server-j-test:
+      image: "${GITHUB_REGISTRY:?Set_GITHUB_REGISTRY}/${GITHUB_PROJECT:?Set_GITHUB_PROJECT}/server-java-app-dev:master"
+      command: bash -c "cp /java/setup_env.sh.test /root/setup_env.sh && chmod 755 /root/setup_env.sh && export EXTERNALDB=1 && /susemanager/bin/mgr-setup -s; cd /srv/tomcat/webapps/ && cp /java/sample.war . && cp /java/server.xml.from_master_rpm.without.ipv6.with.0.0.0.0.v1 /etc/tomcat/server.xml && cd /java && ant -f manager-build.xml ivy refresh-branding-jar deploy && cp /java/logging.properties.dev /etc/tomcat/logging.properties && /usr/lib/tomcat/server start"
+      volumes:
+        - ./java:/java
+        - ./branding:/branding
+        - ./susemanager:/susemanager
+        - ./spacewalk:/spacewalk
+        - ./web:/web
+        - ./python:/python
+      ports:
+        - "5678:8080"
+      
+  server-pg:
+    image: postgres 
+    environment:
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=susemanager
+  server-salt-master:
+    image: "${GITHUB_REGISTRY:?Set_GITHUB_REGISTRY}/${GITHUB_PROJECT:?Set_GITHUB_PROJECT}/server-salt-master:master"
+  server-salt-api:
+    image: "${GITHUB_REGISTRY:?Set_GITHUB_REGISTRY}/${GITHUB_PROJECT:?Set_GITHUB_PROJECT}/server-salt-api:master"
