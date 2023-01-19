@@ -3,7 +3,7 @@
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <%@ taglib uri="http://rhn.redhat.com/rhn" prefix="rhn" %>
 
-<script type="text/javascript" src="/javascript/schedule-options.js?cb=${rhn:getConfig('web.buildtimestamp')}"></script>
+<script type="text/javascript" src="http://localhost:1234/javascript/schedule-options.js?cb=${rhn:getConfig('web.buildtimestamp')}"></script>
 <div class="spacewalk-scheduler">
     <div class="form-horizontal">
         <c:set var="maintenanceWindowsEmpty" value="${maintenanceWindows != null && empty maintenanceWindows}" />

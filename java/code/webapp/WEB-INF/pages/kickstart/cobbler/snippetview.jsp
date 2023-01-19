@@ -8,8 +8,8 @@
 
 <html:html >
 <body>
-<script language="javascript" type="text/javascript" src="/javascript/legacy/ace-editor/ace.js?cb=${rhn:getConfig('web.buildtimestamp')}"></script>
-<script language="javascript" type="text/javascript" src="/javascript/legacy/ace-editor/ext-modelist.js?cb=${rhn:getConfig('web.buildtimestamp')}"></script>
+<script language="javascript" type="text/javascript" src="http://localhost:1234/javascript/legacy/ace-editor/ace.js?cb=${rhn:getConfig('web.buildtimestamp')}"></script>
+<script language="javascript" type="text/javascript" src="http://localhost:1234/javascript/legacy/ace-editor/ext-modelist.js?cb=${rhn:getConfig('web.buildtimestamp')}"></script>
 <rhn:toolbar base="h1" icon="header-info" imgAlt="info.alt.img">
   ${requestScope.snippet.displayName}
 </rhn:toolbar>

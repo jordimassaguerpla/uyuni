@@ -15,7 +15,7 @@
     <rhn:require acl="is(development_environment)">
       <link rel="stylesheet/less" type="text/css" href="/css/susemanager-fullscreen.less" />
       <script>less = { env: 'development' };</script>
-      <script src="/javascript/less.js"></script>
+      <script src="http://localhost:1234/javascript/less.js"></script>
     </rhn:require>
     <rhn:require acl="not is(development_environment)">
       <link rel="stylesheet" href="/css/susemanager-fullscreen.css" />

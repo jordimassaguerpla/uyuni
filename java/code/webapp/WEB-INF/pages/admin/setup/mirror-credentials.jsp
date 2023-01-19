@@ -6,8 +6,8 @@
 
 <html>
     <body>
-        <script type="text/javascript" src="/javascript/susemanager-setup-wizard.js?cb=${rhn:getConfig('web.buildtimestamp')}"></script>
-        <script type="text/javascript" src="/javascript/susemanager-setup-wizard-mirror-credentials.js?cb=${rhn:getConfig('web.buildtimestamp')}"></script>
+        <script type="text/javascript" src="http://localhost:1234/javascript/susemanager-setup-wizard.js?cb=${rhn:getConfig('web.buildtimestamp')}"></script>
+        <script type="text/javascript" src="http://localhost:1234/javascript/susemanager-setup-wizard-mirror-credentials.js?cb=${rhn:getConfig('web.buildtimestamp')}"></script>
         <!-- MODAL: Edit credentials -->
         <div class="modal fade" id="modal-edit-credentials">
             <div class="modal-dialog">

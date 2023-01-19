@@ -15,26 +15,26 @@
       <bean:message key="layout.jsp.productname"/>
       <%= GlobalInstanceHolder.MENU_TREE.getTitlePage(pageContext) %>
     </title>
-    <link rel="shortcut icon" href="/img/favicon.ico" />
+    <link rel="shortcut icon" href="http://localhost:1234/img/favicon.ico" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <c:set var="cb_version" value="${rhn:getConfig('web.buildtimestamp')}" />
 
     <!-- import default fonts/icons styles -->
-    <link rel="stylesheet" href="/fonts/font-awesome/css/font-awesome.css?cb=${cb_version}" />
+    <link rel="stylesheet" href="http://localhost:1234/fonts/font-awesome/css/font-awesome.css?cb=${cb_version}" />
     <!-- import custom fonts/icons styles -->
-    <link rel="stylesheet" href="/fonts/font-spacewalk/css/spacewalk-font.css?cb=${cb_version}" />
+    <link rel="stylesheet" href="http://localhost:1234/fonts/font-spacewalk/css/spacewalk-font.css?cb=${cb_version}" />
 
     <!-- import plugins styles -->
-    <link rel="stylesheet" href="/css/legacy/jquery.timepicker.css?cb=${cb_version}" />
-    <link rel="stylesheet" href="/css/bootstrap-datepicker.css?cb=${cb_version}" />
-    <link rel="stylesheet" href="/javascript/select2/select2.css?cb=${cb_version}" />
-    <link rel="stylesheet" href="/javascript/select2/select2-bootstrap.css?cb=${cb_version}" />
+    <link rel="stylesheet" href="http://localhost:1234/css/legacy/jquery.timepicker.css?cb=${cb_version}" />
+    <link rel="stylesheet" href="http://localhost:1234/css/bootstrap-datepicker.css?cb=${cb_version}" />
+    <link rel="stylesheet" href="http://localhost:1234/javascript/select2/select2.css?cb=${cb_version}" />
+    <link rel="stylesheet" href="http://localhost:1234/javascript/select2/select2-bootstrap.css?cb=${cb_version}" />
 
     <!-- import styles -->
     <c:set var="webTheme" value="${GlobalInstanceHolder.USER_PREFERENCE_UTILS.getCurrentWebTheme(pageContext)}"/>
-    <link rel="stylesheet" href="/css/${webTheme}.css?cb=${cb_version}" />
+    <link rel="stylesheet" href="http://localhost:1234/css/${webTheme}.css?cb=${cb_version}" />
 
     <!-- expose user preferred language to the application -->
     <c:set var="currentLocale" value="${GlobalInstanceHolder.USER_PREFERENCE_UTILS.getCurrentLocale(pageContext)}"/>
@@ -58,15 +58,15 @@
         window.userTimeFormat='${userTimeFormat}'
     </script>
 
-    <script src="/javascript/legacy/jquery.min.js?cb=${cb_version}"></script>
-    <script src="/javascript/legacy/bootstrap.min.js?cb=${cb_version}"></script>
-    <script src="/javascript/select2/select2.js?cb=${cb_version}"></script>
-    <script src="/javascript/spacewalk-essentials.js?cb=${cb_version}"></script>
-    <script src="/javascript/spacewalk-checkall.js?cb=${cb_version}"></script>
-    <script src="/javascript/ajax.js?cb=${cb_version}"></script>
+    <script src="http://localhost:1234/javascript/legacy/jquery.min.js?cb=${cb_version}"></script>
+    <script src="http://localhost:1234/javascript/legacy/bootstrap.min.js?cb=${cb_version}"></script>
+    <script src="http://localhost:1234/javascript/select2/select2.js?cb=${cb_version}"></script>
+    <script src="http://localhost:1234/javascript/spacewalk-essentials.js?cb=${cb_version}"></script>
+    <script src="http://localhost:1234/javascript/spacewalk-checkall.js?cb=${cb_version}"></script>
+    <script src="http://localhost:1234/javascript/ajax.js?cb=${cb_version}"></script>
 
-    <script src="/javascript/legacy/jquery.timepicker.js?cb=${cb_version}"></script>
-    <script src="/javascript/bootstrap-datepicker.js?cb=${cb_version}"></script>
+    <script src="http://localhost:1234/javascript/legacy/jquery.timepicker.js?cb=${cb_version}"></script>
+    <script src="http://localhost:1234/javascript/bootstrap-datepicker.js?cb=${cb_version}"></script>
 
-    <script src='/javascript/manager/main.bundle.js?cb=${cb_version}'></script>
-    <script src='/javascript/momentjs/moment-with-langs.min.js?cb=${cb_version}' type='text/javascript'></script>
+    <script src='http://localhost:1234/javascript/manager/main.bundle.js?cb=${cb_version}'></script>
+    <script src='http://localhost:1234/javascript/momentjs/moment-with-langs.min.js?cb=${cb_version}' type='text/javascript'></script>

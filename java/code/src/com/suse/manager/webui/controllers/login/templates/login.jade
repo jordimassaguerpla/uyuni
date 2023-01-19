@@ -6,18 +6,18 @@ html(lang=window.preferredLocale.replace("_", "-"))
         meta(http-equiv='content-type', content='text/html;charset=UTF-8')
         title
             | #{title}
-        link(rel='shortcut icon', href='/img/favicon.ico')
+        link(rel='shortcut icon', href='http://localhost:1234/img/favicon.ico')
         meta(name='viewport', content='width=device-width, initial-scale=1.0')
         // import default fonts/icons styles
-        link(rel='stylesheet', href='/fonts/font-awesome/css/font-awesome.css?cb=#{webBuildtimestamp}')
+        link(rel='stylesheet', href='http://localhost:1234/fonts/font-awesome/css/font-awesome.css?cb=#{webBuildtimestamp}')
         // import custom fonts/icons styles
-        link(rel='stylesheet', href='/fonts/font-spacewalk/css/spacewalk-font.css?cb=#{webBuildtimestamp}')
+        link(rel='stylesheet', href='http://localhost:1234/fonts/font-spacewalk/css/spacewalk-font.css?cb=#{webBuildtimestamp}')
         // import styles
-        link(rel='stylesheet', href='/css/#{webTheme}.css?cb=#{webBuildtimestamp}')
-        script(src='/javascript/jquery.js?cb=#{webBuildtimestamp}')
-        script(src='/javascript/login.js?cb=#{webBuildtimestamp}')
-        script(src='/javascript/bootstrap.js?cb=#{webBuildtimestamp}')
-        script(src='/javascript/manager/main.bundle.js?cb=#{webBuildtimestamp}')
+        link(rel='stylesheet', href='http://localhost:1234/css/#{webTheme}.css?cb=#{webBuildtimestamp}')
+        script(src='http://localhost:1234/javascript/jquery.js?cb=#{webBuildtimestamp}')
+        script(src='http://localhost:1234/javascript/login.js?cb=#{webBuildtimestamp}')
+        script(src='http://localhost:1234/javascript/bootstrap.js?cb=#{webBuildtimestamp}')
+        script(src='http://localhost:1234/javascript/manager/main.bundle.js?cb=#{webBuildtimestamp}')
         noscript
             .alert.alert-danger
                 | Some features require JavaScript in order to work properly. Make sure you enable JavaScript in your browser.

@@ -7,7 +7,7 @@
 
 <body>
     <c:if test="${requestScope.restart == 'true'}">
-        <script src="/javascript/restart.js?cb=${rhn:getConfig('web.buildtimestamp')}" type="text/javascript"> </script>
+        <script src="http://localhost:1234/javascript/restart.js?cb=${rhn:getConfig('web.buildtimestamp')}" type="text/javascript"> </script>
     </c:if>
     <rhn:toolbar base="h1" icon="header-info" imgAlt="info.alt.img"
                  helpUrl="/docs/${rhn:getDocsLocale(pageContext)}/reference/admin/restart.html">

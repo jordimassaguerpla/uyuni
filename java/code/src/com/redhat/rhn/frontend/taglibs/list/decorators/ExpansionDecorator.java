@@ -40,13 +40,13 @@ public class ExpansionDecorator extends BaseListDecorator {
                                                 "showAllRows(rowHash%s);</script>";
 
     private static final String IMPORT_TREE_JS =
-        "<script src=\"/javascript/tree.js\" type=\"text/javascript\"></script>";
+        "<script src=\"http://localhost:1234/javascript/tree.js\" type=\"text/javascript\"></script>";
     /**
      * {@inheritDoc}
      */
     @Override
     public void beforeList() throws JspException {
-        //<script src="/javascript/tree.js" type="text/javascript"></script>
+        //<script src="http://localhost:1234/javascript/tree.js" type="text/javascript"></script>
         ListTagUtil.write(pageContext, IMPORT_TREE_JS);
         ListTagUtil.write(pageContext, String.format(NEW_VAR_SCRIPT, listName));
         LocalizationService ls = LocalizationService.getInstance();

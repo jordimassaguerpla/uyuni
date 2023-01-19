@@ -19,20 +19,20 @@
     <title>
       <bean:message key="layout.jsp.productname"/>
     </title>
-    <link rel="shortcut icon" href="/img/favicon.ico" />
+    <link rel="shortcut icon" href="http://localhost:1234/img/favicon.ico" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <c:set var="cb_version" value="${rhn:getConfig('web.buildtimestamp')}" />
 
     <!-- import default fonts/icons styles -->
-    <link rel="stylesheet" href="/fonts/font-awesome/css/font-awesome.css?cb=${cb_version}" />
+    <link rel="stylesheet" href="http://localhost:1234/fonts/font-awesome/css/font-awesome.css?cb=${cb_version}" />
     <!-- import custom fonts/icons styles -->
-    <link rel="stylesheet" href="/fonts/font-spacewalk/css/spacewalk-font.css?cb=${cb_version}" />
+    <link rel="stylesheet" href="http://localhost:1234/fonts/font-spacewalk/css/spacewalk-font.css?cb=${cb_version}" />
 
     <c:set var="webTheme" value="${ConfigDefaults.get().getDefaultWebTheme()}"/>
     <!-- import styles -->
-    <link rel="stylesheet" href="/css/${webTheme}.css?cb=${cb_version}" />
+    <link rel="stylesheet" href="http://localhost:1234/css/${webTheme}.css?cb=${cb_version}" />
 
     <!-- expose user preferred language to the application -->
     <c:set var="currentLocale" value="${ConfigDefaults.get().getDefaultLocale()}"/>
@@ -42,14 +42,14 @@
     <c:set var="docsLocale" value="${ConfigDefaults.get().getDefaultDocsLocale()}"/>
     <script>window.docsLocale='${docsLocale}'</script>
 
-    <script src="/javascript/jquery.js?cb=${cb_version}"></script>
-    <script src="/javascript/bootstrap.js?cb=${cb_version}"></script>
-    <script src="/javascript/select2/select2.js?cb=${cb_version}"></script>
-    <script src="/javascript/spacewalk-essentials.js?cb=${cb_version}"></script>
-    <script src="/javascript/spacewalk-checkall.js?cb=${cb_version}"></script>
+    <script src="http://localhost:1234/javascript/jquery.js?cb=${cb_version}"></script>
+    <script src="http://localhost:1234/javascript/bootstrap.js?cb=${cb_version}"></script>
+    <script src="http://localhost:1234/javascript/select2/select2.js?cb=${cb_version}"></script>
+    <script src="http://localhost:1234/javascript/spacewalk-essentials.js?cb=${cb_version}"></script>
+    <script src="http://localhost:1234/javascript/spacewalk-checkall.js?cb=${cb_version}"></script>
 
-    <script src='/javascript/manager/main.bundle.js?cb=${cb_version}'></script>
-    <script src='/javascript/momentjs/moment-with-langs.min.js?cb=${cb_version}' type='text/javascript'></script>
+    <script src='http://localhost:1234/javascript/manager/main.bundle.js?cb=${cb_version}'></script>
+    <script src='http://localhost:1234/javascript/momentjs/moment-with-langs.min.js?cb=${cb_version}' type='text/javascript'></script>
     <decorator:head />
   </head>
   <body onload="<decorator:getProperty property="body.onload" />">

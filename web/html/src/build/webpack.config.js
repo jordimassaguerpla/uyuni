@@ -111,7 +111,7 @@ module.exports = (env, argv) => {
         filename: `[name].bundle.js`,
         path: path.resolve(__dirname, "../dist/"),
         chunkFilename: "javascript/manager/[name].bundle.js",
-        publicPath: "/",
+        publicPath: "http://localhost:1234/",
         hashFunction: "md5",
       },
       devtool: isProductionMode ? "source-map" : "eval-source-map",

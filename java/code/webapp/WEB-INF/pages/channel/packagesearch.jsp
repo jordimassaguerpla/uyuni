@@ -8,7 +8,7 @@
     <head>
     </head>
     <body>
-        <script type="text/javascript" src="/javascript/highlander.js?cb=${rhn:getConfig('web.buildtimestamp')}"></script>
+        <script type="text/javascript" src="http://localhost:1234/javascript/highlander.js?cb=${rhn:getConfig('web.buildtimestamp')}"></script>
         <rhn:toolbar base="h1" icon="header-search"
                      helpUrl="/docs/${rhn:getDocsLocale(pageContext)}/reference/software/software-package-search.html">
             <bean:message key="packagesearch.jsp.toolbar"/>

@@ -8,8 +8,8 @@
 <head>
 </head>
 <body>
-    <script type="text/javascript" src="/javascript/jquery-ui.js?cb=${rhn:getConfig('web.buildtimestamp')}"></script>
-    <script type="text/javascript" src="/javascript/actionchain.js?cb=${rhn:getConfig('web.buildtimestamp')}"></script>
+    <script type="text/javascript" src="http://localhost:1234/javascript/jquery-ui.js?cb=${rhn:getConfig('web.buildtimestamp')}"></script>
+    <script type="text/javascript" src="http://localhost:1234/javascript/actionchain.js?cb=${rhn:getConfig('web.buildtimestamp')}"></script>
     <rhn:toolbar base="h1" icon="header-chain"
         helpUrl="/docs/${rhn:getDocsLocale(pageContext)}/reference/schedule/action-chains.html">
         <bean:message key="actionchain.jsp.title"/>
