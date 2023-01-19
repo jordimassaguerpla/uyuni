@@ -83,8 +83,8 @@ public class EnvironmentFilter implements Filter {
             if (log.isDebugEnabled()) {
                 log.debug("redirecting to secure: {}", path);
             }
-            redirectToSecure(hreq, hres);
-            return;
+            //redirectToSecure(hreq, hres);
+            //return;
         }
 
         // Set request attributes we may need later
