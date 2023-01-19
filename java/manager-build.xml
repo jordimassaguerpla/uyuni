@@ -183,30 +183,30 @@
     </exec>
   </target>
 
-  <target name="deploy" depends="webapp, open-ssh-socket" description="Deploy a new copy of SUSE Manager">
-    <echo message="Copying files to remote host..." />
+  <target name="deploy" depends="webapp" description="Deploy a new copy of SUSE Manager">
+    <echo message="Copying files to local host..." />
     <exec failonerror="true" executable="rsync">
-      <arg line="-a --delete --rsh '${rsync.arg.rsh}' --exclude log4j2.xml ${build.dir}/webapp/ ${deploy.user}@${deploy.host}:${deploy.dir}/" />
+      <arg line="-a -v --delete --exclude log4j2.xml ${build.dir}/webapp/ ${deploy.dir}/" />
     </exec>
 
     <echo message="Linking the branding jar..." />
-    <exec failonerror="true" executable="ssh">
-      <arg line="${ssh.command.args} mv ${deploy.dir}/WEB-INF/lib/java-branding.jar /usr/share/rhn/lib"/>
+    <exec failonerror="true" executable="mv">
+      <arg line="${deploy.dir}/WEB-INF/lib/java-branding.jar /usr/share/rhn/lib"/>
     </exec>
 
-    <exec failonerror="true" executable="ssh">
-      <arg line="${ssh.command.args} ln -sf /usr/share/rhn/lib/java-branding.jar ${deploy.dir}/WEB-INF/lib/java-branding.jar"/>
+    <exec failonerror="true" executable="ln">
+      <arg line="-sf /usr/share/rhn/lib/java-branding.jar ${deploy.dir}/WEB-INF/lib/java-branding.jar"/>
     </exec>
 
     <echo message="Linking jars for Taskomatic..."/>
-    <exec failonerror="true" executable="ssh">
-      <arg line="${ssh.command.args} ln -sf ${deploy.dir}/WEB-INF/lib/*.jar /usr/share/spacewalk/taskomatic"/>
+    <exec failonerror="true" executable="ln">
+      <arg line="-sf ${deploy.dir}/WEB-INF/lib/*.jar /usr/share/spacewalk/taskomatic"/>
     </exec>
-    <exec failonerror="true" executable="ssh">
-      <arg line="${ssh.command.args} mv ${deploy.dir}/WEB-INF/lib/rhn.jar /usr/share/rhn/lib"/>
+    <exec failonerror="true" executable="mv">
+      <arg line="${deploy.dir}/WEB-INF/lib/rhn.jar /usr/share/rhn/lib"/>
     </exec>
-    <exec failonerror="true" executable="ssh">
-      <arg line="${ssh.command.args} ln -sf /usr/share/rhn/lib/rhn.jar ${deploy.dir}/WEB-INF/lib"/>
+    <exec failonerror="true" executable="ln">
+      <arg line="-sf /usr/share/rhn/lib/rhn.jar ${deploy.dir}/WEB-INF/lib"/>
     </exec>
 
   </target>
