@@ -1,5 +1,9 @@
 #!/bin/bash
 
+echo "[FIXME] Skipping reportdb setup for setting up containers. This should not make it to production "
+
+exit 0
+
 set -e
 
 help() {
