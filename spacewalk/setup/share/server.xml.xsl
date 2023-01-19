@@ -19,12 +19,12 @@
     <xsl:attribute name="keepAliveTimeout">300000</xsl:attribute>
     <xsl:attribute name="secretRequired">false</xsl:attribute>
   </xsl:element>
-  <xsl:if test="not(../Connector[@port='8009' and @address='::1'])">
+  <xsl:if test="not(../Connector[@port='8009' and @address='0.0.0.0'])">
   <xsl:copy-of select="preceding-sibling::node()[last()][self::text()]" />
   <xsl:element name="Connector">
     <xsl:copy-of select="@*" />
     <xsl:attribute name="URIEncoding">UTF-8</xsl:attribute>
-    <xsl:attribute name="address">::1</xsl:attribute>
+    <xsl:attribute name="address">0.0.0.0</xsl:attribute>
     <xsl:attribute name="maxThreads">150</xsl:attribute>
     <xsl:attribute name="connectionTimeout">900000</xsl:attribute>
     <xsl:attribute name="keepAliveTimeout">300000</xsl:attribute>
@@ -33,11 +33,11 @@
   </xsl:if>
 </xsl:template>
 
-<xsl:template match="/Server/Service[@name='Catalina']/Connector[@port='8009' and @address='::1']">
+<xsl:template match="/Server/Service[@name='Catalina']/Connector[@port='8009' and @address='0.0.0.0']">
   <xsl:element name="Connector">
     <xsl:copy-of select="@*" />
     <xsl:attribute name="URIEncoding">UTF-8</xsl:attribute>
-    <xsl:attribute name="address">::1</xsl:attribute>
+    <xsl:attribute name="address">0.0.0.0</xsl:attribute>
     <xsl:attribute name="maxThreads">150</xsl:attribute>
     <xsl:attribute name="connectionTimeout">900000</xsl:attribute>
     <xsl:attribute name="keepAliveTimeout">300000</xsl:attribute>
@@ -68,7 +68,7 @@
       <xsl:attribute name="protocol">AJP/1.3</xsl:attribute>
       <xsl:attribute name="redirectPort">8443</xsl:attribute>
       <xsl:attribute name="URIEncoding">UTF-8</xsl:attribute>
-      <xsl:attribute name="address">::1</xsl:attribute>
+      <xsl:attribute name="address">0.0.0.0</xsl:attribute>
       <xsl:attribute name="maxThreads">150</xsl:attribute>
       <xsl:attribute name="connectionTimeout">900000</xsl:attribute>
       <xsl:attribute name="keepAliveTimeout">300000</xsl:attribute>
