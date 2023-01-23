@@ -8,7 +8,7 @@ RUN zypper ar -G http://download.opensuse.org/repositories/systemsmanagement:/Uy
 RUN zypper ar -G http://download.opensuse.org/update/leap/15.4/sle/ sle_update_repo
 RUN zypper ar -G http://download.opensuse.org/repositories/systemsmanagement:/Uyuni:/Master/images/repo/Testing-Overlay-POOL-x86_64-Media1/ testing_overlay_devel_repo
 
-copy dockerfiles/server-all-in-one/setup_env.sh /root/setup_env.sh
+copy setup_env.sh /root/setup_env.sh
 
 RUN zypper ref
 RUN zypper -n in vi
