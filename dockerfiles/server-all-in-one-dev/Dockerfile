@@ -8,8 +8,18 @@ RUN zypper -n install \
       ant \
       ant-junit5 \
       servletapi5 \
-      cpio && \
+      cpio \
+      spacecmd \
+      wget && \
     zypper addrepo --no-gpgcheck obs://systemsmanagement:Uyuni:Utils systemsmanagement:uyuni:utils && \
     zypper -n install obs-to-maven yarn && \
     zypper clean -a
+COPY minima.yaml /etc/minima.yaml
+#RUN wget -O - https://github.com/uyuni-project/minima/releases/download/v0.4/minima-linux-amd64.tar.gz | tar -xz -C /usr/bin
+COPY minima /usr/bin/minima
+RUN /usr/bin/minima sync -c /etc/minima.yaml && \
+    mv /srv/www/htdocs/pub/TestRepoRpmUpdates/repositories/systemsmanagement\:/Uyuni\:/Test-Packages\:/Updates/rpm/* /srv/www/htdocs/pub/TestRepoRpmUpdates/ && \
+   rm -rf /srv/www/htdocs/pub/TestRepoRpmUpdates/repositories/
+RUN cd /srv/www/htdocs/pub && ln -s TestRepoRpmUpdates AnotherRepo
+RUN mkdir /etc/pki/rpm-gpg && wget -c http://download.opensuse.org/repositories/systemsmanagement:/Uyuni:/Test-Packages:/Pool/rpm/repodata/repomd.xml.key -O  /etc/pki/rpm-gpg/uyuni-tools-gpg-pubkey-0d20833e.key
 
