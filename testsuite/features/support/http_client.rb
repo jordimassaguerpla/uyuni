@@ -13,7 +13,7 @@ class HttpClient
   #   host: The hostname of the server you want to connect to.
   def initialize(host)
     puts 'Activating HTTP API'
-    @http_client = Faraday.new('https://' + host, request: { timeout: DEFAULT_TIMEOUT })
+    @http_client = Faraday.new('https://' + host, request: { timeout: DEFAULT_TIMEOUT }, ssl: {verify: false} )
   end
 
   ##

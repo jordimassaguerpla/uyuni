@@ -74,6 +74,6 @@ jobs:
       - name: run_cucumber_clients
         run: ./testsuite/docker_runner/16_run_init_clients_tests.sh 
       - name: run_cucumber_secondary
-        run: ./testsuite/docker_runner/17_run_secondary_tests 
+        run: ./testsuite/docker_runner/17_run_secondary_tests.sh 
       - name: last-step
         run: echo "bye bye!"

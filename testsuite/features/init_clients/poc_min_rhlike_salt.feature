@@ -16,6 +16,6 @@ Feature: Bootstrap a Red Hat-like minion and do some basic operations on it
     And I wait until I do not see "Loading..." text
     Then I should see a "accepted" text
     When I follow the left menu "Systems > System List > All"
-    And I wait until I see the name of "sleminion", refreshing the page
+    And I wait until I see the name of "sle_minion", refreshing the page
     Then the Salt master can reach "rhlike_minion"
 
