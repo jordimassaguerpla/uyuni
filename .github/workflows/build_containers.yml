@@ -1,5 +1,6 @@
 name: Create and publish docker images used for the CI
 
+
 on: workflow_dispatch
 
 env:
@@ -69,6 +70,7 @@ jobs:
           build-args: |
             BASE=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/server-all-in-one
             VERSION=master
+
   build-and-push-ubuntu-minion-image:
     runs-on: ubuntu-latest
     permissions:
