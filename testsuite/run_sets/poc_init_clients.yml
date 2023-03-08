@@ -1,0 +1,11 @@
+
+## POC features BEGIN ###
+
+# IMMUTABLE ORDER
+- features/init_clients/allcli_update_activationkeys.feature
+# - features/init_clients/srv_check_reposync.feature
+- features/init_clients/poc_sle_sshminion.feature
+- features/init_clients/poc_sle_minion.feature
+- features/init_clients/poc_min_rhlike_salt.feature
+- features/init_clients/poc_min_deblike_salt.feature
+## POC features END ###
