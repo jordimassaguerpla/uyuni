@@ -14,6 +14,7 @@ sudo -i podman run --cap-add AUDIT_CONTROL --rm \
     -v ${src_dir}/client:/client \
     -v ${src_dir}/susemanager-utils:/susemanager-utils \
     -v ${src_dir}/susemanager:/susemanager \
+    -v ${src_dir}/susemanager/bin/mgr-setup:/usr/lib/susemanager/bin/mgr-setup \
     -v /sys/fs/cgroup:/sys/fs/cgroup:rw \
     -v /tmp/test-all-in-one:/tmp \
     --cgroupns=host \
