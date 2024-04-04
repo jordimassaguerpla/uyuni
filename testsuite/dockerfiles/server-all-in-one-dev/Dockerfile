@@ -17,6 +17,7 @@ RUN zypper ref && \
       wget && \
     zypper addrepo --no-gpgcheck obs://systemsmanagement:Uyuni:Utils systemsmanagement:uyuni:utils && \
     zypper -n install obs-to-maven yarn && \
+    zypper -n install locale-formula inter-server-sync && \
     zypper clean -a
 COPY minima.yaml /etc/minima.yaml
 RUN mkdir /tmp/minima && \
