@@ -2,6 +2,7 @@
 
 export UYUNI_PROJECT=uyuni-project
 export UYUNI_VERSION=master
+export NO_AUTH_REGISTRY=no_auth_registry
 
 set -x
 set -e
