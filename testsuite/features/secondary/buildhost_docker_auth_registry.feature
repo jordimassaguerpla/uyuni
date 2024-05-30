@@ -55,6 +55,7 @@ Feature: Build image with authenticated registry
     And I click on "Delete"
     And I click on the red confirmation button
     And I should see a "Image profile has been deleted." text
+    And I wait until no Salt job is running on "build_host"
 
   Scenario: Cleanup: remove authenticated image store
     When I follow the left menu "Images > Stores"
@@ -66,5 +67,3 @@ Feature: Build image with authenticated registry
   Scenario: Cleanup: delete registry image
     When I delete the image "auth_registry_profile" with version "latest" via API calls
 
-  Scenario: Cleanup: Make sure no job is left running on buildhost
-    When I wait until no Salt job is running on "build_host"
