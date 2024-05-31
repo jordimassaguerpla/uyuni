@@ -8,3 +8,8 @@ sudo -i podman run --privileged --rm -d --network network -v /tmp/opensuse_produ
 sudo -i podman exec sle_minion bash -c "ssh-keygen -A && /usr/sbin/sshd -e"
 sudo -i podman exec sle_minion bash -c "if [ ! -d /root/.ssh ];then mkdir /root/.ssh/;chmod 700 /root/.ssh;fi;cp /tmp/authorized_keys /root/.ssh/"
 sudo -i podman exec -d sle_minion prometheus
+sudo -i podman exec -d sle_minion node_exporter
+sudo -i podman exec -d sle_minion prometheus-apache_exporter
+sudo -i podman exec -d -e DATA_SOURCE_NAME="postgresql://user:passwd@localhost:5432/database?sslmode=disable" sle_minion prometheus-postgres_exporter
+sudo -i podman exec -d sle_minion bash -c "exporter_exporter -config.file /etc/exporter_exporter.yaml -config.dirs /etc/exporter_exporter.d"
+
