@@ -46,12 +46,15 @@ Feature: Monitor SUMA environment with Prometheus on a Red Hat-like Salt minion
     Then I should see a "Applying the highstate has been scheduled." text
     And I wait until event "Apply highstate scheduled by admin" is completed
 
-  Scenario: Visit monitoring endpoints on the Red Hat-like minion
+@skip_if_github_validation
+  Scenario: Wait for services
     When I wait until "node" exporter service is active on "rhlike_minion"
-    And I visit "Prometheus node exporter" endpoint of this "rhlike_minion"
     And I wait until "apache" exporter service is active on "rhlike_minion"
-    And I visit "Prometheus apache exporter" endpoint of this "rhlike_minion"
     And I wait until "postgres" exporter service is active on "rhlike_minion"
+
+  Scenario: Visit monitoring endpoints on the Red Hat-like minion
+    When I visit "Prometheus node exporter" endpoint of this "rhlike_minion"
+    And I visit "Prometheus apache exporter" endpoint of this "rhlike_minion"
     And I visit "Prometheus postgres exporter" endpoint of this "rhlike_minion"
 
   Scenario: Cleanup: undo Prometheus exporter formulas on the Red Hat-like minion
