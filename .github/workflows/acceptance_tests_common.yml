@@ -88,6 +88,9 @@ jobs:
         run: ./testsuite/podman_runner/04_setup_ssh_controller.sh 
       - name: install_gems_in_controller
         run: ./testsuite/podman_runner/05_install_gems_in_controller.sh
+      - name: filter tests
+        if: ${{ inputs.recommended_tests != '' }}
+        run: ./testsuite/podman_runner/19_filter_secondary_tests.sh && cat testsuite/run_sets/secondary_fast.yml
       - name: collect_and_tag_flaky_tests_in_controller
         # Until we refactor the usage of the secret, it only runs on uyuni-project/uyuni repository branches
         if: github.repository == 'uyuni-project/uyuni'
@@ -126,9 +129,6 @@ jobs:
         run: ./testsuite/podman_runner/17_run_init_clients_tests.sh
       - name: split_secondary
         run: ./testsuite/podman_runner/19_split_secondary_p_tests.sh
-      - name: filter tests
-        if: ${{ inputs.recommended_tests != '' }}
-        run: ./testsuite/podman_runner/19_filter_secondary_tests.sh && cat testsuite/run_sets/secondary_fast.yml
       - name: run_secondary_tests
         run: ./testsuite/podman_runner/${{ inputs.secondary_tests }}
       - name: get_server_logs
