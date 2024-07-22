@@ -21,7 +21,6 @@ import com.suse.oval.ovaltypes.OvalRootType;
 import java.io.File;
 import java.net.URISyntaxException;
 import java.net.URL;
-//TEST
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
