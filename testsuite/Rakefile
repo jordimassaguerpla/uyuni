@@ -98,12 +98,19 @@ namespace :utils do
     input_t = YAML.load_file(input_yaml)
     output_t = []
     for i in filter_t
+      puts "i:"
+      puts i
       for j in input_t
+        puts "j"
+        puts j
         if j.include?(i)
+          puts "yeah, append it"
           output_t.append(j)
         end
       end
     end
+    puts "output"
+    puts output_t
     File.write(output_yaml, output_t.to_yaml)
   end
 
