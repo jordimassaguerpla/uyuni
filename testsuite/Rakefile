@@ -96,7 +96,7 @@ namespace :utils do
     puts output_yaml
     filter_t = YAML.load_file(filter_yaml)
     input_t = YAML.load_file(input_yaml)
-    output_t = []
+    output_t = ["features/secondary/srv_users.feature"]
     for i in filter_t
       if i == ''
         next
