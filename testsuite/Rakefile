@@ -98,6 +98,9 @@ namespace :utils do
     input_t = YAML.load_file(input_yaml)
     output_t = []
     for i in filter_t
+      if i == ''
+        next
+      end
       puts "i:"
       puts i
       for j in input_t
