@@ -27,6 +27,7 @@
 %define apache_group apache
 %endif
 
+
 %{!?rhel: %global sbinpath /sbin}%{?rhel: %global sbinpath %{_sbindir}}
 %{!?nodejs_sitelib:%define nodejs_sitelib %{_prefix}/lib/node_modules}
 
