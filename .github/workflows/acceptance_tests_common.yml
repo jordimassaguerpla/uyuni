@@ -22,11 +22,14 @@ jobs:
       - uses: dorny/paths-filter@v3
         id: filter
         with:
+          predicate-quantifier: 'every'
           filters: |
             require_acceptance_tests:
               - 'java/**'
               - 'web/html/src/**'
               - 'testsuite/**'
+              - '!.github/workflows/**'
+              - '!testsuite/features/build_validation/**'
 
   test-uyuni:
     runs-on: ubuntu-22.04
