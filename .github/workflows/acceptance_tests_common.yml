@@ -29,8 +29,8 @@ jobs:
               - 'web/html/src/**'
               - 'testsuite/**'
             exclude_from_acceptance_tests:
-              - '!.github/workflows/**'
-              - '!testsuite/features/build_validation/**'
+              - '.github/workflows/**'
+              - 'testsuite/features/build_validation/**'
   test-uyuni:
     runs-on: ubuntu-22.04
     needs: paths-filter-1
