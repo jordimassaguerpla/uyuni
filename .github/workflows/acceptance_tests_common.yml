@@ -43,9 +43,7 @@ jobs:
           predicate-quantifier: 'every'
           filters: |
             require_acceptance_tests:
-              - 'java/**'
-              - 'web/html/src/**'
-              - 'testsuite/**'
+              - '*'
               - '!.github/workflows/**'
               - '!testsuite/features/build_validation/**'
 
