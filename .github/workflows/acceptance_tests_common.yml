@@ -22,7 +22,6 @@ jobs:
       - uses: dorny/paths-filter@v3
         id: filter
         with:
-          predicate-quantifier: 'some'
           filters: |
             require_acceptance_tests:
               - 'java/**'
@@ -40,16 +39,26 @@ jobs:
       - uses: dorny/paths-filter@v3
         id: filter
         with:
-          predicate-quantifier: 'every'
           filters: |
             require_acceptance_tests:
-              - '*'
               - '!.github/workflows/**'
+  paths-filter-3:
+    runs-on: ubuntu-latest
+    needs: paths-filter-2
+    if: needs.paths-filter-1.outputs.require_acceptance_tests == 'true'
+    outputs:
+      require_acceptance_tests: ${{ steps.filter.outputs.require_acceptance_tests }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            require_acceptance_tests:
               - '!testsuite/features/build_validation/**'
-
   test-uyuni:
     runs-on: ubuntu-22.04
-    needs: paths-filter-2
+    needs: paths-filter-3
     if: needs.paths-filter-2.outputs.require_acceptance_tests == 'true'
     steps:
       - name: fix podman
