@@ -22,6 +22,7 @@ jobs:
       - uses: dorny/paths-filter@v3
         id: filter
         with:
+          predicate-quantifier: 'some'
           filters: |
             require_acceptance_tests:
               - 'java/**'
@@ -39,6 +40,7 @@ jobs:
       - uses: dorny/paths-filter@v3
         id: filter
         with:
+          predicate-quantifier: 'every'
           filters: |
             require_acceptance_tests:
               - '!.github/workflows/**'
@@ -53,6 +55,7 @@ jobs:
       - uses: dorny/paths-filter@v3
         id: filter
         with:
+          predicate-quantifier: 'every'
           filters: |
             require_acceptance_tests:
               - '!testsuite/features/build_validation/**'
