@@ -34,10 +34,8 @@ jobs:
   test-uyuni:
     runs-on: ubuntu-22.04
     needs: paths-filter-1
-    # if: ${{ needs.paths-filter-1.outputs.require_acceptance_tests }}
+    if: ${{ needs.paths-filter-1.outputs.require_acceptance_tests }}
     steps:
-      - name: test
-        run: echo "requires ${{ needs.paths-filter-1.outputs.require_acceptance_tests }}"
       - name: fix podman
         run: sudo apt install podman=3.4.4+ds1-1ubuntu1 --allow-downgrades
       - name: welcome_message
