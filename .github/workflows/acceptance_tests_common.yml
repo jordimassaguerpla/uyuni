@@ -16,7 +16,7 @@ jobs:
   paths-filter-1:
     runs-on: ubuntu-latest
     outputs:
-      require_acceptance_tests: ${{ steps.filter.outputs.require_acceptance_tests }}
+      require_acceptance_tests: ${{ steps.filter.outputs.java || steps.filter.outputs.web || steps.filter.outputs.testsuite }}
     steps:
       - uses: actions/checkout@v4
       - uses: dorny/paths-filter@v3
@@ -34,10 +34,10 @@ jobs:
   test-uyuni:
     runs-on: ubuntu-22.04
     needs: paths-filter-1
-    # if: ${{ needs.paths-filter-1.outputs.java == 'true' || needs.paths-filter-1.outputs.web == 'true' || needs.paths-filter-1.outputs.testsuite == 'true' }}
+    # if: ${{ needs.paths-filter-1.outputs.require_acceptance_tests }}
     steps:
       - name: test
-        run: echo "java ${{ needs.paths-filter-1.outputs.java }} web ${{ needs.paths-filter-1.outputs.web }} testsuite ${{ needs.paths-filter-1.outputs.testsuite }} outputs ${{ needs.paths-filter-1.outputs }}"
+        run: echo "requires ${{ needs.paths-filter-1.outputs.require_acceptance_tests }}"
       - name: fix podman
         run: sudo apt install podman=3.4.4+ds1-1ubuntu1 --allow-downgrades
       - name: welcome_message
