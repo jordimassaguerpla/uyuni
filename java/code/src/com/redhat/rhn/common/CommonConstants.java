@@ -13,8 +13,6 @@
  * in this software or its documentation.
  */
 
-
-
 package com.redhat.rhn.common;
 
 /**
