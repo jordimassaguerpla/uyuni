@@ -19,3 +19,7 @@ for schema in "${available_schemas[@]}"; do
     # Run the missing migrations and only those, to ensure no script is out of place
     sudo -i podman exec server bash -c "/testsuite/podman_runner/run_db_migrations.sh ${schema_name} ${schema_version}"
 done
+
+echo "DEBUG: Contents of /etc/rhn/rhn.conf"
+cat /etc/rhn/rhn.conf
+
