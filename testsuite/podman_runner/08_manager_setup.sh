@@ -21,5 +21,5 @@ for schema in "${available_schemas[@]}"; do
 done
 
 echo "DEBUG: Contents of /etc/rhn/rhn.conf"
-cat /etc/rhn/rhn.conf
+sudo -i podman exec bash -c "cat /etc/rhn/rhn.conf"
 
