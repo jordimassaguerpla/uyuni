@@ -20,6 +20,6 @@ for schema in "${available_schemas[@]}"; do
     sudo -i podman exec server bash -c "/testsuite/podman_runner/run_db_migrations.sh ${schema_name} ${schema_version}"
 done
 
-echo "DEBUG: Contents of /etc/rhn/rhn.conf"
-sudo -i podman exec server bash -c "cat /etc/rhn/rhn.conf"
+sudo -i podman exec server bash -c "echo 'server.susemanager.fromdir = /mirror' >> cat /etc/rhn/rhn.conf"
+sudo -i podman exec server bash -c "ls /mirror"
 
