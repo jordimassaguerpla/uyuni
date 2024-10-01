@@ -13,7 +13,7 @@
  * in this software or its documentation.
  */
 package com.suse.scc;
-
+// TEST
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
