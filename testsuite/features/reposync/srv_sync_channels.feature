@@ -46,5 +46,5 @@ Feature: Be able to list available channels and enable them
 @skip_if_github_validation
   Scenario: Let mgr-sync time out
     When I remove the mgr-sync cache file
-    And I refresh SCC
+    And I execute mgr-sync refresh
     Then I should get "Timeout. No user input for 60 seconds. Exiting..."
