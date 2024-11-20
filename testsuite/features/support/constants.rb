@@ -1129,6 +1129,7 @@ CHANNEL_TO_SYNC_BY_OS_PRODUCT_VERSION = {
         sle-module-basesystem15-sp4-updates-x86_64
         sle-module-desktop-applications15-sp4-pool-x86_64
         sle-module-desktop-applications15-sp4-updates-x86_64
+        sle-product-sles15-sp4-ltss-updates-x86_64
         sle-module-devtools15-sp4-pool-x86_64
         sle-module-devtools15-sp4-updates-x86_64
         sle-module-containers15-sp4-pool-x86_64
@@ -1338,14 +1339,10 @@ CHANNEL_TO_SYNC_BY_OS_PRODUCT_VERSION = {
       ],
     'uyuni-proxy' => # CHECKED
       %w[
-        opensuse_leap15_5-x86_64
-        opensuse_leap15_5-uyuni-client-x86_64
-        opensuse_leap15_5-x86_64-backports-updates
-        opensuse_leap15_5-x86_64-non-oss
-        opensuse_leap15_5-x86_64-non-oss-updates
-        opensuse_leap15_5-x86_64-sle-updates
-        opensuse_leap15_5-x86_64-updates
-        uyuni-proxy-devel-leap-x86_64
+        opensuse_micro5_5-x86_64
+        opensuse_micro5_5-x86_64-sle-updates
+        opensuse_micro5_5-uyuni-client-x86_64
+        opensuse_micro5_5-uyuni-client-devel-x86_64
       ]
     # There are no channels for Retail under Uyuni
   }
