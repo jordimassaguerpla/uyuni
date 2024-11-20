@@ -18,7 +18,7 @@ RUN   zypper -n ar --no-gpgcheck https://download.opensuse.org/repositories/syst
       expect \
       prometheus \
       wget && \
-    zypper addrepo --no-gpgcheck obs://systemsmanagement:Uyuni:Utils systemsmanagement:uyuni:utils && \
+    zypper addrepo --no-gpgcheck https://download.opensuse.org/repositories/systemsmanagement:/Uyuni:/Utils/SLE_15_SP6 systemsmanagement:uyuni:utils && \
     zypper -n install obs-to-maven yarn && \
     zypper clean -a
 COPY minima.yaml /etc/minima.yaml
