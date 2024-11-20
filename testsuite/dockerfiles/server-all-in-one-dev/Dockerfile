@@ -2,7 +2,7 @@ ARG BASE
 ARG VERSION
 FROM ${BASE}:${VERSION}
 
-RUN   zypper -n ar --no-gpgcheck https://download.opensuse.org/repositories/systemsmanagement:/Uyuni:/Stable/images/repo/Uyuni-Server-POOL-x86_64-Media1/ Uyuni-Server-POOL-x86_64
+RUN   zypper -n ar --no-gpgcheck https://download.opensuse.org/repositories/systemsmanagement:/Uyuni:/Stable/images/repo/Uyuni-Server-POOL-x86_64-Media1/ Uyuni-Server-POOL-x86_64 && \
       zypper -n --gpg-auto-import-keys ref && \
       zypper -n install \
       java-17-openjdk-devel \
