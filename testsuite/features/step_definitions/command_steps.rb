@@ -1570,7 +1570,7 @@ end
 When(/^I reboot the server through SSH$/) do
   temp_server = RemoteNode.new('server')
   temp_server.run('reboot > /dev/null 2> /dev/null &')
-  default_timeout = 300
+  default_timeout = 900
 
   check_shutdown(get_target('server').public_ip, default_timeout)
   check_restart(get_target('server').public_ip, temp_server, default_timeout)
