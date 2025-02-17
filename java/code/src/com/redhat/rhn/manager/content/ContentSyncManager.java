@@ -14,7 +14,7 @@
  * in this software or its documentation.
  */
 package com.redhat.rhn.manager.content;
-
+// TEST
 import com.redhat.rhn.GlobalInstanceHolder;
 import com.redhat.rhn.common.conf.Config;
 import com.redhat.rhn.common.conf.ConfigDefaults;
