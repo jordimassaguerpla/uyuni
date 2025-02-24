@@ -304,7 +304,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/opensuse/leap
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/opensuse
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
@@ -334,7 +334,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/cucutest/systemsmanagement/uyuni/master/docker/containers/uyuni-master-testsuite
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/uyuni-master-testsuite
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
