@@ -14,3 +14,15 @@ sudo -i podman exec -d buildhost dockerd
 sudo -i podman exec buildhost bash -c "sed -e 's/http:\/\/download.opensuse.org/file:\/\/\/mirror\/download.opensuse.org/g' -i /etc/zypp/repos.d/*"
 sudo -i podman exec buildhost bash -c "sed -e 's/https:\/\/download.opensuse.org/file:\/\/\/mirror\/download.opensuse.org/g' -i /etc/zypp/repos.d/*"
 sudo podman ps
+
+docker pull ghcr.io/jordimassaguerpla/uyuni/opensuse/leap/15.4:master
+docker tag ghcr.io/jordimassaguerpla/uyuni/opensuse/leap/15.4:master localhost:5002/opensuse/leap:15.4
+docker push localhost:5002/opensuse/leap:15.4
+
+docker pull ghcr.io/jordimassaguerpla/uyuni/uyuni-master-testsuite:master
+docker tag ghcr.io/jordimassaguerpla/uyuni/uyuni-master-testsuite:master localhost:5002/cucutest/systemsmanagement/uyuni/master/docker/containers/uyuni-master-testsuite
+docker push localhost:5002/cucutest/systemsmanagement/uyuni/master/docker/containers/uyuni-master-testsuite
+
+docker login -u ${AUTH_REGISTRY_USER} -p ${AUTH_REGISTRY_PASSWD} localhost:5001
+docker tag ghcr.io/jordimassaguerpla/uyuni/uyuni-master-testsuite:master localhost:5001/cucutest/systemsmanagement/uyuni/master/docker/containers/uyuni-master-testsuite
+docker push localhost:5001/cucutest/systemsmanagement/uyuni/master/docker/containers/uyuni-master-testsuite
