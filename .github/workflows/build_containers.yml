@@ -311,7 +311,7 @@ jobs:
         with:
           context: ./testsuite/dockerfiles/opensuse/leap/15.4
           push: true
-          tags: 15.4
+          tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
   build-and-push-uyuni-master-testsuite-image:
     runs-on: ubuntu-latest
@@ -341,5 +341,5 @@ jobs:
         with:
           context: ./testsuite/dockerfiles/uyuni-master-testsuite
           push: true
-          tags: latest 
+          tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
