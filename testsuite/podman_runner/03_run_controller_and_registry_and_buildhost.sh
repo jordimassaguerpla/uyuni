@@ -2,6 +2,8 @@
 set -ex
 src_dir=$(cd $(dirname "$0")/../.. && pwd -P)
 
+
+
 echo buildhostproductuuid > /tmp/buildhost_product_uuid
 
 AUTH_REGISTRY_USER=$(echo "$AUTH_REGISTRY_CREDENTIALS"| cut -d\| -f1)
@@ -14,6 +16,7 @@ sudo -i podman exec -d buildhost dockerd
 
 sudo -i podman exec buildhost bash -c "sed -e 's/http:\/\/download.opensuse.org/file:\/\/\/mirror\/download.opensuse.org/g' -i /etc/zypp/repos.d/*"
 sudo -i podman exec buildhost bash -c "sed -e 's/https:\/\/download.opensuse.org/file:\/\/\/mirror\/download.opensuse.org/g' -i /etc/zypp/repos.d/*"
+sudo -i podman exec buildhost bash -c "echo DEBUG;rpm -q tar;rpm -q libopenssl1_1;echo DEBUG"
 sudo podman ps
 
 sudo docker pull ghcr.io/$UYUNI_PROJECT/uyuni/opensuse/leap/15.5:master
