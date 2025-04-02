@@ -1,5 +1,5 @@
 # Uyuni automated test suite
-
+TEST
 ## Introduction
 
 This is the automated test suite for [Uyuni](https://www.uyuni-project.org/).
