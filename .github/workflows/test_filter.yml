@@ -23,8 +23,8 @@ jobs:
           ref: ${{ github.event.pull_request.head.ref }}
       - uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36 #v3.0.2
         id: filter
-        predicate-quantifier: 'some'
         with:
+          predicate-quantifier: 'some'
           filters: |
             java:
               - 'java/**'
